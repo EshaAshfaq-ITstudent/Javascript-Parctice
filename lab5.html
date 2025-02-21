@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Pyramid Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+      text-align: center;
+      padding-top: 50px;
+    }
+    .pyramid {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 10px;
+      white-space: pre;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function buildPyramid() {
+      var sizeInput = prompt("Enter the size of the pyramid:");
+      var size = parseInt(sizeInput); 
+      if (isNaN(size) || size <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+      }
+      var pyramid = ""; 
+      for (var i = 1; i <= size; i++) {
+        var spaces = "";
+        for (var s = 0; s < size - i; s++) {
+          spaces = spaces + " ";
+        }
+        var line = "";
+        for (var j = 0; j < i; j++) {
+          line = line + "*";
+        }
+        var finalLine = "";
+        for (var k = 0; k < i; k++) {
+          finalLine = finalLine + "*";
+          if (k != i - 1) { 
+            finalLine = finalLine + " ";
+          }
+        }
+        pyramid = pyramid + spaces + finalLine + "\n";
+    }
+      document.getElementById("output").innerText = pyramid;
+    }
+  </script>
+</head>
+<body>
+  <h1>Simple Pyramid Generator</h1>
+  <p>Click the button below and follow the prompt.</p>
+  <button onclick="buildPyramid()">Generate Pyramid</button>
+  <div id="output" class="pyramid"></div>
+</body>
+</html>

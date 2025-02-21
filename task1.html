@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert, Prompt & Confirmation Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #fff;
+            color: #ff4b5c;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff4b5c;
+            color: white;
+        }
+    </style>
+    <script>
+        function checkNegativeNumber() {
+            let num = prompt("Enter a number:");
+            if (num < 0) {
+                alert("Error: Negative numbers are not allowed!");
+            } else {
+                alert("You entered: " + num);
+            }
+        }
+
+        function displayOddNumbers() {
+            let num = prompt("Enter a number:");
+            if (num < 0) {
+                alert("Error: Negative numbers are not allowed!");
+                return;
+            }
+            let result = "Odd Numbers: ";
+            for (let i = 1; i <= num; i += 2) {
+                result += i + ", ";
+            }
+            alert(result);
+        }
+
+        function calculateFactorial() {
+            let num = prompt("Enter a number to find its factorial:");
+            if (num < 0) {
+                alert("Error: Negative numbers do not have a factorial!");
+                return;
+            }
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            alert("Factorial of " + num + " is: " + fact);
+        }
+
+        function generateSequence() {
+            let choice = prompt("Enter 'even' for even numbers or 'odd' for odd numbers:").toLowerCase();
+            let num = prompt("Enter the number for sequence:");
+            if (num < 0) {
+                alert("Error: Negative numbers are not allowed!");
+                return;
+            }
+            let result = "Sequence: ";
+            let start = (choice === "even") ? 0 : 1;
+            for (let i = start; i <= num; i += 2) {
+                result += i + ", ";
+            }
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Interactive Number Operations</h2>
+        <button onclick="checkNegativeNumber()">Check Negative Number</button>
+        <button onclick="displayOddNumbers()">Display Odd Numbers</button>
+        <button onclick="calculateFactorial()">Calculate Factorial</button>
+        <button onclick="generateSequence()">Generate Even/Odd Sequence</button>
+    </div>
+</body>
+</html>

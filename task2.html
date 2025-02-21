@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url(tempw.webp)no-repeat center center/cover ;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255);
+        }
+        button {
+            background: #ffcc00;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff9900;
+        }
+    </style>
+    <script>
+        function convertTemperature() {
+            let choice = prompt("Enter 'C' to convert from Celsius to Fahrenheit or 'F' to convert from Fahrenheit to Celsius:").toUpperCase();
+            if (choice !== 'C' && choice !== 'F') {
+                alert("Invalid choice! Please enter C or F.");
+                return;
+            }
+            let temp = prompt("Enter the temperature:");
+            if (isNaN(temp)) {
+                alert("Invalid input! Please enter a number.");
+                return;
+            }
+            temp = parseFloat(temp);
+            let result;
+            if (choice === 'C') {
+                result = (temp * 9/5) + 32;
+                alert(temp + "°C is " + result.toFixed(2) + "°F");
+            } else {
+                result = (temp - 32) * 5/9;
+                alert(temp + "°F is " + result.toFixed(2) + "°C");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Temperature Converter</h2>
+        <button onclick="convertTemperature()">Convert Temperature</button>
+    </div>
+</body>
+</html>
